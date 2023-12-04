@@ -21,39 +21,15 @@
 
 .item-bar{
   width: 25px;
-  /* background-color: rgb(76, 186, 255); */
+  background-color: #4cbaff;
 }
 
 .item-value{
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .item-bar:hover{
-  background-color: #2bdff3;
+  background-color: #fbf834;
 }
 
-
-.neon-div {
-  background-color: #ffffff;
-  box-shadow:
-    0 0 2px 0px #fff,  /* inner white */
-    0 0 4px 0px rgb(0, 208, 255), /* middle magenta */
-    0 0 6px 0px #0ff; /* outer cyan */
-}
-
-.neon-div-correct {
-  background-color: #ffffff;
-  box-shadow:
-    0 0 2px 0px #fff,  /* inner white */
-    0 0 4px 0px rgb(0, 208, 255), /* middle magenta */
-    0 0 6px 0px #0ff; /* outer cyan */
-}
-
-.neon-div-wrong {
-  background-color: #ffffff;
-  box-shadow:
-    0 0 2px 0px #fff,  /* inner white */
-    0 0 4px 0px rgb(0, 208, 255), /* middle magenta */
-    0 0 6px 0px #0ff; /* outer cyan */
-}
 

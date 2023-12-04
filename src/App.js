@@ -37,6 +37,7 @@ function App() {
     setSortingArray(array);
   };
 
+  //method to perform sorting
   const performSort = async () => {
     let tempArray = sortingArray;
 
@@ -81,11 +82,11 @@ function App() {
       {/* controls */}
       <div className=" m-2 border p-2 rounded">
         <div className="row">
-          <div className="col col-4">
-            <div className="mb-3">
+          <div className="col col-2">
+            <div className="">
               <select
                 id="array-size-selector"
-                className="form-select"
+                className="form-select bg-dark text-white"
                 aria-label="Array Size"
                 value={arraySize}
                 onChange={(e) => handleArraySizeInput(e)}
@@ -98,34 +99,23 @@ function App() {
             </div>
           </div>
           <div className="col col-2">
-            <button className="btn btn-primary" onClick={(e) => performSort(e)}>
+            <button
+              className="btn btn-outline-light w-100"
+              onClick={(e) => performSort(e)}
+            >
               Sort
             </button>
           </div>
         </div>
       </div>
-      <h5 className="text-center">Before Sorting</h5>
-      {/* sorting section */}
-      <div className="d-flex flex-center justify-content-center">
-        {sortingArray?.length > 0 &&
-          sortingArray.map((item, index) => (
-            <div className="m-2" key={index}>
-              <div className="item-value text-center">{item.value}</div>
-              <div
-                className="item-bar neon-div"
-                style={{ height: `${item.value * 8}px` }}
-              ></div>
-            </div>
-          ))}
-      </div>
-      <h5 className="text-center">After Sorting</h5>
-      <div className="d-flex flex-center justify-content-center">
+
+      <div className="d-flex flex-center justify-content-center mt-4">
         {sortingArray?.length > 0 &&
           sortingArray.map((item, index) => (
             <div className="m-2" key={index} id={item.id}>
               <div className="item-value text-center">{item.value}</div>
               <div
-                className="item-bar neon-div"
+                className="item-bar"
                 style={{ height: `${item.value * 8}px` }}
               ></div>
             </div>
