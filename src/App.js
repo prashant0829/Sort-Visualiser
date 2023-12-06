@@ -51,6 +51,9 @@ function App() {
       case 2:
         performSelectionSort();
         break;
+      case 3:
+        performInsertionSort();
+        break;
 
       default:
         break;
@@ -140,6 +143,56 @@ function App() {
 
       console.log(tempArray);
       box1.childNodes[1].style.backgroundColor = "#1fbf84";
+    }
+  };
+
+  const performInsertionSort = async () => {
+    let tempArray = sortingArray;
+    let min = 0;
+    let swap;
+    let box1;
+    let box2;
+    let box3;
+
+    for (let i = 1; i < tempArray.length; i++) {
+      console.log("Iteration", i);
+      let j = i - 1;
+      let current = tempArray[i].value;
+      box3 = document.getElementById(tempArray[i].id);
+      let a = box3.childNodes[1].style.height;
+      let b = box3.childNodes[0].innerText;
+      box3.childNodes[1].style.backgroundColor = "#fbf834";
+      await new Promise((resolve) => setTimeout(resolve, 10 * sortingSpeed));
+      box3.childNodes[1].style.backgroundColor = "#4cbaff";
+      while (j >= 0 && current < tempArray[j].value) {
+        box1 = document.getElementById(tempArray[j + 1].id);
+        box2 = document.getElementById(tempArray[j].id);
+
+        box1.childNodes[1].style.backgroundColor = "#f32b2b";
+        box2.childNodes[1].style.backgroundColor = "#f32b2b";
+
+        tempArray[j + 1].value = tempArray[j].value;
+        await new Promise((resolve) => setTimeout(resolve, 10 * sortingSpeed));
+
+        box1.childNodes[1].style.height = box2.childNodes[1].style.height;
+        box1.childNodes[0].innerText = box2.childNodes[0].innerText;
+        box1.childNodes[1].style.backgroundColor = "#4cbaff";
+        box2.childNodes[1].style.backgroundColor = "#4cbaff";
+        j = j - 1;
+      }
+      await new Promise((resolve) => setTimeout(resolve, 10 * sortingSpeed));
+
+      tempArray[j + 1].value = current;
+      box1 = document.getElementById(tempArray[j + 1].id);
+      box1.childNodes[1].style.height = a;
+      box1.childNodes[0].innerText = b;
+      // box1.childNodes[1].style.backgroundColor = "#1fbf84";
+      for (let k = 0; k <= i; k++) {
+        box1 = document.getElementById(tempArray[k].id);
+        box1.childNodes[1].style.backgroundColor = "#1fbf84";
+      }
+      console.log(tempArray.map((item) => item.value));
+      await new Promise((resolve) => setTimeout(resolve, 10 * sortingSpeed));
     }
   };
 
