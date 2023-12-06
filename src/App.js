@@ -62,12 +62,12 @@ function App() {
 
   const performBubbleSort = async () => {
     let tempArray = sortingArray;
-
+    let box1, box2;
     for (let i = 0; i < tempArray.length - 1; i++) {
       console.log("Iteration", i);
       for (let j = 1; j < tempArray.length - i; j++) {
-        const box1 = document.getElementById(tempArray[j - 1].id);
-        const box2 = document.getElementById(tempArray[j].id);
+        box1 = document.getElementById(tempArray[j - 1].id);
+        box2 = document.getElementById(tempArray[j].id);
         if (!(tempArray[j - 1].value > tempArray[j].value)) {
           box1.childNodes[1].style.backgroundColor = "#1fbf84";
           box2.childNodes[1].style.backgroundColor = "#1fbf84";
@@ -95,6 +95,11 @@ function App() {
         box2.childNodes[1].style.backgroundColor = "#4cbaff";
         await new Promise((resolve) => setTimeout(resolve, 20 * sortingSpeed));
       }
+      if (i === tempArray.length - 2) {
+        box1.childNodes[1].style.backgroundColor = "#1fbf84";
+      }
+      box2.childNodes[1].style.backgroundColor = "#1fbf84";
+      await new Promise((resolve) => setTimeout(resolve, 10 * sortingSpeed));
     }
   };
 
