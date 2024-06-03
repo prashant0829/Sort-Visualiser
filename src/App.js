@@ -299,6 +299,9 @@ function App() {
             </div>
           ))}
       </div>
+      <div className="mt-5">
+        <h6>Development still in progress | By Prashant Bansal</h6>
+      </div>
     </div>
   );
 }
